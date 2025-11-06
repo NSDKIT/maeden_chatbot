@@ -15,117 +15,201 @@
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
             background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
             min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
         }
 
         header {
-            background-color: rgba(0, 0, 0, 0.1);
-            color: white;
-            padding: 20px;
             text-align: center;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            color: white;
+            margin-bottom: 40px;
+            padding: 20px;
         }
 
         header h1 {
-            font-size: 28px;
-            margin-bottom: 5px;
+            font-size: 32px;
+            margin-bottom: 10px;
+            font-weight: 700;
         }
 
         header p {
-            font-size: 14px;
-            opacity: 0.9;
+            font-size: 16px;
+            opacity: 0.95;
         }
 
-        main {
-            flex: 1;
-            padding: 20px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+            align-items: start;
         }
 
-        .chatbot-container {
-            width: 100%;
-            max-width: 900px;
+        .section {
             background: white;
             border-radius: 12px;
-            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
-            overflow: hidden;
+            padding: 30px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
         }
 
-        iframe {
-            width: 100%;
-            height: 100%;
-            min-height: 700px;
-            border: none;
-            display: block;
+        .section h2 {
+            color: #333;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .section p {
+            color: #666;
+            line-height: 1.8;
+            margin-bottom: 15px;
+        }
+
+        .features {
+            list-style: none;
+        }
+
+        .features li {
+            color: #555;
+            margin-bottom: 12px;
+            padding-left: 25px;
+            position: relative;
+            line-height: 1.6;
+        }
+
+        .features li:before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: #1C64F2;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background-color: #1C64F2;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 15px;
+            transition: background-color 0.3s;
+            font-weight: 500;
+        }
+
+        .cta-button:hover {
+            background-color: #1a51d1;
         }
 
         footer {
-            background-color: rgba(0, 0, 0, 0.1);
-            color: white;
             text-align: center;
-            padding: 15px;
-            font-size: 12px;
+            color: white;
+            margin-top: 40px;
+            padding: 20px;
             opacity: 0.8;
+            font-size: 14px;
         }
 
         @media (max-width: 768px) {
+            .content {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
             header h1 {
-                font-size: 24px;
+                font-size: 28px;
             }
 
-            main {
-                padding: 10px;
+            .section {
+                padding: 20px;
             }
 
-            .chatbot-container {
-                border-radius: 8px;
-            }
-
-            iframe {
-                min-height: 600px;
+            body {
+                padding: 15px;
             }
         }
 
-        @media (max-width: 480px) {
-            header h1 {
-                font-size: 20px;
-            }
+        /* Dify Chatbot Bubble Customization */
+        #dify-chatbot-bubble-button {
+            background-color: #1C64F2 !important;
+        }
 
-            header {
-                padding: 15px;
-            }
-
-            main {
-                padding: 5px;
-            }
-
-            iframe {
-                min-height: 500px;
-            }
+        #dify-chatbot-bubble-window {
+            width: 24rem !important;
+            height: 40rem !important;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>前田電気株式会社bot</h1>
-        <p>質問やご不明な点がございましたら、お気軽にお聞きください</p>
-    </header>
+    <div class="container">
+        <header>
+            <h1>🤖 前田電気株式会社bot</h1>
+            <p>AIアシスタントがいつでもあなたのご質問にお答えします</p>
+        </header>
 
-    <main>
-        <div class="chatbot-container">
-            <iframe
-                src="https://udify.app/chatbot/CJVin0ihWsG8gTf2"
-                frameborder="0"
-                allow="microphone">
-            </iframe>
+        <div class="content">
+            <div class="section">
+                <h2>ようこそ</h2>
+                <p>当前田電気株式会社botは、最新のAI技術を使用して、あなたのご質問や困りごとに24時間対応でサポートいたします。</p>
+                <p>右下のチャットボタンからお気軽にお問い合わせください。</p>
+                
+                <h2 style="margin-top: 30px;">特徴</h2>
+                <ul class="features">
+                    <li>24時間いつでも利用可能</li>
+                    <li>高速な回答時間</li>
+                    <li>複雑な質問にも対応</li>
+                    <li>音声入力対応</li>
+                    <li>会話履歴の保存</li>
+                </ul>
+            </div>
+
+            <div class="section">
+                <h2>よくある質問</h2>
+                <p><strong>Q: 前田電気株式会社botはどのように利用しますか？</strong></p>
+                <p>A: 右下の青いチャットボタンをクリックすると、チャットウィンドウが開きます。そこにご質問を入力してください。</p>
+
+                <p><strong>Q: いつでも利用できますか？</strong></p>
+                <p>A: はい、24時間365日いつでもご利用いただけます。</p>
+
+                <p><strong>Q: 個人情報は安全ですか？</strong></p>
+                <p>A: もちろんです。すべての通信は暗号化されており、安全です。</p>
+
+                <a href="#" class="cta-button">詳しく知る</a>
+            </div>
         </div>
-    </main>
 
-    <footer>
-        <p>&copy; 2025 前田電気株式会社bot. All rights reserved.</p>
-    </footer>
+        <footer>
+            <p>&copy; 2025 前田電気株式会社bot. All rights reserved.</p>
+        </footer>
+    </div>
+
+    <!-- Dify Chatbot Script -->
+    <script>
+        window.difyChatbotConfig = {
+            token: 'CJVin0ihWsG8gTf2',
+            inputs: {
+                // You can define the inputs from the Start node here
+                // key is the variable name
+                // e.g.
+                // name: "NAME"
+            },
+            systemVariables: {
+                // user_id: 'YOU CAN DEFINE USER ID HERE',
+                // conversation_id: 'YOU CAN DEFINE CONVERSATION ID HERE, IT MUST BE A VALID UUID',
+            },
+            userVariables: {
+                // avatar_url: 'YOU CAN DEFINE USER AVATAR URL HERE',
+                // name: 'YOU CAN DEFINE USER NAME HERE',
+            },
+        }
+    </script>
+    <script
+        src="https://udify.app/embed.min.js"
+        id="CJVin0ihWsG8gTf2"
+        defer>
+    </script>
 </body>
 </html>
